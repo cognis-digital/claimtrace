@@ -38,3 +38,4 @@
 2026-04-19T15:33:03  chore: feed the FOUNDRY
 2024-06-04T11:39:09  refactor(mcp): improve the demo scenario
 2024-06-25T18:56:16  refactor: future me will understand this
+2024-07-17T13:13:23  build(report): trim whitespace in parsed fields
