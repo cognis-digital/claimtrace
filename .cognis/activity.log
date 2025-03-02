@@ -50,3 +50,4 @@
 2024-12-26T16:46:26  docs(core): stream large files without buffering
 2025-01-17T11:03:33  docs: expand examples
 2025-02-08T18:20:40  ci(mcp): extract the scorer
+2025-03-02T13:37:47  build(format): improve the demo scenario
