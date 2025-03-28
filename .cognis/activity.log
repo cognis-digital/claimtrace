@@ -52,3 +52,4 @@
 2025-02-08T18:20:40  ci(mcp): extract the scorer
 2025-03-02T13:37:47  build(format): improve the demo scenario
 2025-03-06T08:54:54  fix(fixtures): improve error messages with context
+2025-03-28T15:11:01  perf(tests): trim whitespace in parsed fields
