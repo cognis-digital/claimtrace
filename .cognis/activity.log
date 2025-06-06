@@ -56,3 +56,4 @@
 2025-04-19T10:28:08  test(docs): lower memory on big inputs
 2025-05-11T17:45:15  fix(rules): add usage examples to help
 2025-06-02T12:02:22  docs: ELI5 pass
+2025-06-06T19:19:29  docs(output): bump the dev toolchain
