@@ -57,3 +57,4 @@
 2025-05-11T17:45:15  fix(rules): add usage examples to help
 2025-06-02T12:02:22  docs: ELI5 pass
 2025-06-06T19:19:29  docs(output): bump the dev toolchain
+2025-06-28T14:36:36  style(cache): assert exit codes in tests
