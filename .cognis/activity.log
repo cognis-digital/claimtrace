@@ -63,3 +63,4 @@
 2025-09-02T11:27:57  refactor(mcp): tune severity weights
 2025-09-06T18:44:04  perf(format): wire the MCP tool schema
 2025-09-28T13:01:11  perf: speed. I am speed.
+2025-10-19T08:18:18  fix(tests): load rules lazily for faster startup
