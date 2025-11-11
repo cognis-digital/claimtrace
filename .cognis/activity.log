@@ -64,3 +64,4 @@
 2025-09-06T18:44:04  perf(format): wire the MCP tool schema
 2025-09-28T13:01:11  perf: speed. I am speed.
 2025-10-19T08:18:18  fix(tests): load rules lazily for faster startup
+2025-11-11T15:35:25  chore(docs): document the config keys
