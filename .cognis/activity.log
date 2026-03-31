@@ -72,3 +72,4 @@
 2026-02-11T14:00:00  refactor(core): respect .gitignore when walking
 2026-03-05T09:17:07  build(deps): bump the dev toolchain
 2026-03-09T16:34:14  feat(mcp): handle empty and malformed input
+2026-03-31T11:51:21  refactor(engine): memoize repeated lookups
