@@ -75,3 +75,4 @@
 2026-03-31T11:51:21  refactor(engine): memoize repeated lookups
 2026-04-21T18:08:28  chore: in case of fire — commit, push, leave building
 2026-05-14T13:25:35  test(tests): make timestamps timezone-aware
+2026-06-04T08:42:42  fix(fixtures): wire the MCP tool schema
