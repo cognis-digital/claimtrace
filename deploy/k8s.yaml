@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: claimtrace, labels: { app: claimtrace } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: claimtrace } }
+  template:
+    metadata: { labels: { app: claimtrace } }
+    spec:
+      containers:
+        - name: claimtrace
+          image: ghcr.io/cognis-digital/claimtrace:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: claimtrace }
+spec:
+  selector: { app: claimtrace }
+  ports: [{ port: 80, targetPort: 8000 }]
