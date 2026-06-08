@@ -1,11 +1,28 @@
-"""
-CLAIMTRACE — Misinformation provenance tracer — earliest-known appearance graph
-Part of the Cognis Neural Suite by Cognis Digital.
-https://cognis.digital · MIT License
-"""
-from claimtrace.core import scan, TOOL_NAME, TOOL_VERSION
+"""CLAIMTRACE - Misinformation provenance tracer.
 
-__version__ = TOOL_VERSION
-__author__ = "Cognis Digital"
-__license__ = "MIT"
-__all__ = ["scan", "TOOL_NAME", "TOOL_VERSION", "__version__"]
+Builds an earliest-known-appearance graph from timestamped observations of a
+claim spreading across sources, then identifies the origin(s) and the most
+likely propagation paths.
+"""
+from .core import (
+    Observation,
+    ProvenanceGraph,
+    TraceResult,
+    parse_observations,
+    build_graph,
+    trace,
+)
+
+TOOL_NAME = "claimtrace"
+TOOL_VERSION = "1.0.0"
+
+__all__ = [
+    "Observation",
+    "ProvenanceGraph",
+    "TraceResult",
+    "parse_observations",
+    "build_graph",
+    "trace",
+    "TOOL_NAME",
+    "TOOL_VERSION",
+]

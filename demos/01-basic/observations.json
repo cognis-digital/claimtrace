@@ -1,0 +1,37 @@
+{
+  "claim": "City reservoir contaminated with industrial runoff (later debunked)",
+  "observations": [
+    {
+      "source": "anon_forum_thread",
+      "timestamp": "2026-03-01T06:12:00Z",
+      "variant": "heard the reservoir is full of industrial runoff, water unsafe"
+    },
+    {
+      "source": "@RiverWatchTrue",
+      "timestamp": "2026-03-01T07:45:00Z",
+      "variant": "reservoir contaminated with industrial runoff, water unsafe to drink",
+      "via": "anon_forum_thread"
+    },
+    {
+      "source": "localnews-clickblog",
+      "timestamp": "2026-03-01T09:20:00Z",
+      "variant": "BREAKING: city reservoir contaminated, runoff makes water unsafe"
+    },
+    {
+      "source": "@CivicAlertsFeed",
+      "timestamp": "2026-03-01T10:05:00Z",
+      "variant": "reservoir contaminated with runoff - water unsafe",
+      "via": "@RiverWatchTrue"
+    },
+    {
+      "source": "regional-tv-station",
+      "timestamp": "2026-03-01T13:30:00Z",
+      "variant": "reports circulating that reservoir water is unsafe due to runoff"
+    },
+    {
+      "source": "@ViralRepost88",
+      "timestamp": "2026-03-01T14:15:00Z",
+      "variant": "water unsafe, reservoir runoff contamination spreading"
+    }
+  ]
+}
