@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/claimtrace",
+  "version": "0.2.0",
+  "description": "JavaScript port of claimtrace (Cognis Neural Suite)",
+  "bin": {
+    "claimtrace": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
