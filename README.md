@@ -1,77 +1,113 @@
-# CLAIMTRACE — Misinformation provenance tracer — earliest-known appearance graph
+<a name="top"></a>
+<div align="center">
 
-> Part of the **[Cognis Neural Suite](https://github.com/cognis-digital)** by [Cognis Digital](https://cognis.digital)
-> Cognis Open Collaboration License (COCL) v1.0 · domain: `info-integrity`
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6b46c1,100:2b6cb0&height=120&section=header&text=CLAIMTRACE&fontSize=48&fontColor=ffffff&fontAlignY=58" width="100%" alt="CLAIMTRACE"/>
 
-[![PyPI](https://img.shields.io/pypi/v/cognis-claimtrace.svg)](https://pypi.org/project/cognis-claimtrace/)
-[![CI](https://github.com/cognis-digital/claimtrace/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/claimtrace/actions)
-[![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE)
-[![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
+# CLAIMTRACE
 
-**Misinformation provenance tracer — earliest-known appearance graph.**
+### Misinformation provenance tracer — earliest-known appearance graph
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3500&pause=1000&color=6B46C1&center=true&vCenter=true&width=720&lines=Misinformation+provenance+tracer++earliestknown+appearance+g;Self-hostable+%C2%B7+MCP-native+%C2%B7+CI-ready+%C2%B7+polyglot" width="720"/>
+
+[![PyPI](https://img.shields.io/pypi/v/cognis-claimtrace.svg?color=6b46c1)](https://pypi.org/project/cognis-claimtrace/) [![CI](https://github.com/cognis-digital/claimtrace/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/claimtrace/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
 
 *Information Integrity — provenance, synthetic-media, and narrative analysis.*
 
-## Why
-
-Security and intelligence teams need misinformation provenance tracer — earliest-known appearance graph without standing up heavyweight infrastructure. `claimtrace` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
-
-## Install
+</div>
 
 ```bash
 pip install cognis-claimtrace
-# or, from this repo:
-pip install -e ".[dev]"
+claimtrace scan .            # → prioritized findings in seconds
 ```
 
+## Contents
+
+- [Why claimtrace?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Contributing](#contributing)
+
+<a name="why"></a>
+## Why claimtrace?
+
+Misinformation provenance tracer — earliest-known appearance graph — without standing up heavyweight infrastructure.
+
+`claimtrace` is single-purpose, scriptable, and self-hostable: point it at a target, get prioritized results in the format your workflow already speaks (table · JSON · SARIF), gate CI on it, and let agents drive it over MCP.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+<a name="features"></a>
+## Features
+
+- ✅ Scan
+- ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
+- ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+<a name="quick-start"></a>
 ## Quick start
 
 ```bash
+pip install cognis-claimtrace
 claimtrace --version
-claimtrace scan demos/                      # run against the bundled demo
-claimtrace scan demos/ --format sarif --out r.sarif --fail-on high
-claimtrace scan demos/ --format html --out report.html
-claimtrace mcp                              # expose as an MCP server (Cognis.Studio / Claude Desktop / Cursor)
+claimtrace scan .                       # scan current project
+claimtrace scan . --format json         # machine-readable
+claimtrace scan . --fail-on high        # CI gate (non-zero exit)
 ```
 
-## Built-in demo scenarios
+<div align="right"><a href="#top">↑ back to top</a></div>
 
-Each scenario folder includes a `SCENARIO.md` describing the situation and the findings to expect.
+<a name="example"></a>
+## Example
 
-- [`demos/01-political-rumor-origin/`](demos/01-political-rumor-origin/SCENARIO.md)
-- [`demos/02-clean-news-spread/`](demos/02-clean-news-spread/SCENARIO.md)
-- [`demos/03-deepfake-amplification/`](demos/03-deepfake-amplification/SCENARIO.md)
+```text
+$ claimtrace scan .
+  [HIGH    ] CLA-001  example finding             (./src/app.py)
+  [MEDIUM  ] CLA-002  another signal              (./config.yaml)
 
-## Output formats
+  2 findings · risk score 5 · 38ms
+```
 
-- **Table** (default) — human-readable terminal summary
-- **JSON** — machine-readable findings for pipelines
-- **SARIF** — drops into GitHub code-scanning / IDE problem panes
-- **HTML** — shareable report with severity rollups
+<div align="right"><a href="#top">↑ back to top</a></div>
 
-## How it fits the Cognis Neural Suite
+<a name="how-it-compares"></a>
+## How it compares
 
-`claimtrace` is one of **52 tools** in the [Cognis Neural Suite](https://github.com/cognis-digital). Every tool ships an MCP server, so [Cognis.Studio](https://cognis.studio) agents can call them as scoped capabilities.
+| | **Cognis claimtrace** | typical tools |
+|---|:---:|:---:|
+| Self-hostable, no account | ✅ | varies |
+| Single command, zero config | ✅ | ⚠️ |
+| JSON + SARIF for CI | ✅ | varies |
+| MCP-native (AI agents) | ✅ | ❌ |
+| Polyglot ports (JS/Go/Rust) | ✅ | ❌ |
+| Open license | ✅ COCL | varies |
+<div align="right"><a href="#top">↑ back to top</a></div>
 
-**Sibling tools in `info-integrity`:** [`deepcheck`](https://github.com/cognis-digital/deepcheck), [`electionlens`](https://github.com/cognis-digital/electionlens), [`narrativediff`](https://github.com/cognis-digital/narrativediff)
+<a name="integrations"></a>
+## Integrations
 
-## Architecture & roadmap
+Pipes into your stack: **SARIF** for code-scanning, **JSON** for anything, an **MCP server** (`claimtrace mcp`) for AI agents, and a webhook forwarder for SIEM/Slack/Jira. See [`docs/INTEGRATIONS.md`](docs/INTEGRATIONS.md).
 
-- Design notes: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- Planned work: [`ROADMAP.md`](ROADMAP.md)
+<div align="right"><a href="#top">↑ back to top</a></div>
 
+<a name="install-anywhere"></a>
+## Install anywhere
+
+| Linux | macOS | Windows | Docker | Cloud |
+|---|---|---|---|---|
+| `scripts/setup-linux.sh` | `scripts/setup-macos.sh` | `scripts/setup-windows.ps1` | `docker run ghcr.io/cognis-digital/claimtrace` | [DEPLOY.md](docs/DEPLOY.md) (AWS/Azure/GCP/k8s) |
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+<a name="contributing"></a>
 ## Contributing
 
-PRs, new detections, and demo scenarios are welcome under the collaboration-pull model. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+PRs, new rules, and demo scenarios are welcome under the collaboration-pull model — see [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+> ### ⭐ If `claimtrace` saved you time, **star it** — it genuinely helps others find it.
 
 ## License
 
 Source-available under the **Cognis Open Collaboration License (COCL) v1.0** — free for personal, internal-evaluation, research, and educational use; **commercial / production use requires a license** (licensing@cognis.digital). See [LICENSE](LICENSE).
 
-## Responsible use
+---
 
-This is dual-use security software. Use it only against systems, data, and identities you own or are explicitly authorized in writing to test, and in compliance with applicable law.
-
-## About
-
-**[Cognis Digital](https://cognis.digital)** — Wyoming, USA · *Making Tomorrow Better Today: Advanced Cybersecurity, AI Innovation, and Blockchain Expertise.*
+<div align="center"><sub><b><a href="https://cognis.digital">Cognis Digital</a></b> · one of 170+ tools in the <a href="https://github.com/cognis-digital/cognis-neural-suite">Cognis Neural Suite</a> · <i>Making Tomorrow Better Today</i></sub></div>
