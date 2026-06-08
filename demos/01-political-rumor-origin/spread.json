@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "Senator X received $5M from foreign donor",
+    "platform": "4chan/pol",
+    "earliest": true,
+    "coordinated": false,
+    "ts": "2026-06-05T03:00:00Z"
+  },
+  {
+    "claim": "Senator X received $5M from foreign donor",
+    "platform": "telegram",
+    "earliest": false,
+    "coordinated": true,
+    "ts": "2026-06-05T06:00:00Z"
+  },
+  {
+    "claim": "Senator X received $5M from foreign donor",
+    "platform": "x.com",
+    "earliest": false,
+    "coordinated": true,
+    "ts": "2026-06-05T07:30:00Z"
+  },
+  {
+    "claim": "Senator X received $5M from foreign donor",
+    "platform": "news-aggregator",
+    "earliest": false,
+    "coordinated": false,
+    "ts": "2026-06-05T12:00:00Z"
+  }
+]

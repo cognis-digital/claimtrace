@@ -1,0 +1,16 @@
+[
+  {
+    "claim": "CEO announces resignation in video",
+    "platform": "x.com",
+    "earliest": true,
+    "coordinated": true,
+    "ts": "2026-06-08T08:00:00Z"
+  },
+  {
+    "claim": "CEO announces resignation in video",
+    "platform": "tiktok",
+    "earliest": false,
+    "coordinated": true,
+    "ts": "2026-06-08T08:15:00Z"
+  }
+]
