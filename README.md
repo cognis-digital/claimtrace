@@ -36,7 +36,9 @@ Misinformation provenance tracer — earliest-known appearance graph — without
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Parse Observations
+- ✅ Build Graph
+- ✅ Trace
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
