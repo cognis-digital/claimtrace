@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-claimtrace
+pip install "git+https://github.com/cognis-digital/claimtrace.git"
 claimtrace scan .            # → prioritized findings in seconds
 ```
 
@@ -48,7 +48,7 @@ Misinformation provenance tracer — earliest-known appearance graph — without
 ## Quick start
 
 ```bash
-pip install cognis-claimtrace
+pip install "git+https://github.com/cognis-digital/claimtrace.git"
 claimtrace --version
 claimtrace scan .                       # scan current project
 claimtrace scan . --format json         # machine-readable
