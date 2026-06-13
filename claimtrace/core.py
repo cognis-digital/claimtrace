@@ -23,8 +23,7 @@ This is real, deterministic logic - no stubs, standard library only.
 """
 from __future__ import annotations
 
-import json
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple
 

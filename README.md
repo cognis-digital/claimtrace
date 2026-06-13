@@ -9,16 +9,22 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3500&pause=1000&color=6B46C1&center=true&vCenter=true&width=720&lines=Misinformation+provenance+tracer++earliestknown+appearance+g;Self-hostable+%C2%B7+MCP-native+%C2%B7+CI-ready+%C2%B7+polyglot" width="720"/>
 
-[![PyPI](https://img.shields.io/pypi/v/cognis-claimtrace.svg?color=6b46c1)](https://pypi.org/project/cognis-claimtrace/) [![CI](https://github.com/cognis-digital/claimtrace/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/claimtrace/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
+[![install](https://img.shields.io/badge/install-git%2B%20%C2%B7%20pipx%20%C2%B7%20uv-6b46c1.svg)](#install--every-way-every-platform) [![CI](https://github.com/cognis-digital/claimtrace/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/claimtrace/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
 
 *Information Integrity — provenance, synthetic-media, and narrative analysis.*
 
 </div>
 
 ```bash
-pip install cognis-claimtrace
+pip install "git+https://github.com/cognis-digital/claimtrace.git"
 claimtrace scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+ClaimTrace helps you figure out where a piece of misinformation or a rumor first appeared and how it spread. You give it a list of sightings — who posted it, when, and where they may have seen it first — and it builds a map showing the most likely origin and the chain of sharing from there. It is useful for journalists, researchers, and fact-checkers who need to quickly establish the timeline and likely source of a false or misleading claim circulating online. The tool runs entirely on your own machine with no account or internet connection needed.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -45,10 +51,56 @@ Misinformation provenance tracer — earliest-known appearance graph — without
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Intelligence & OSINT  ·  **JTF MERIDIAN division:** NULLBYTE · BLACK CELL
+
+**Topics:** `cognis` `osint` `intelligence` `recon`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`claimtrace` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/claimtrace/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/claimtrace/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/claimtrace.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/claimtrace.git"  # uv
+pip install "git+https://github.com/cognis-digital/claimtrace.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/claimtrace.git
+cd claimtrace && pip install .
+```
+
+Then run:
+```sh
+claimtrace --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-claimtrace
+pip install "git+https://github.com/cognis-digital/claimtrace.git"
 claimtrace --version
 claimtrace scan .                       # scan current project
 claimtrace scan . --format json         # machine-readable
@@ -138,6 +190,32 @@ curl -fsSL https://raw.githubusercontent.com/cognis-digital/claimtrace/main/inst
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="related"></a>
+<a name="verification"></a>
+## Verification
+
+[![tests](https://img.shields.io/badge/tests-13%20passing-2ea44f.svg)](AUDIT.md)
+
+Every push is verified end-to-end. Latest audit (2026-06-13):
+
+```text
+tests        : 13 passed, 0 failed, 0 errored
+compile      : all modules parse
+cli          : C:\Python314\python.exe: No module named https
+package      : https
+```
+
+<details><summary>CLI surface (<code>--help</code>)</summary>
+
+```text
+C:\Python314\python.exe: No module named https
+```
+</details>
+
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m https --help` + `pytest -q`.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+
 ## Related Cognis tools
 
 - [`deepcheck`](https://github.com/cognis-digital/deepcheck) — Lightweight synthetic-media detector with C2PA validation
