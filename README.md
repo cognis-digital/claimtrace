@@ -20,6 +20,31 @@ pip install cognis-claimtrace
 claimtrace scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+`claimtrace` traces the earliest-known provenance of a claim from a JSON observations file.
+
+1. **Install**:
+   ```bash
+   pip install -e .
+   ```
+2. **Trace provenance** from an observations file:
+   ```bash
+   claimtrace trace observations.json
+   ```
+3. **Pipe observations via stdin** (the input argument defaults to `-`):
+   ```bash
+   cat observations.json | claimtrace trace
+   ```
+4. **Read the output** as JSON for downstream analysis:
+   ```bash
+   claimtrace --format json trace observations.json
+   ```
+5. **Automate in CI** — fold a provenance check into a pipeline:
+   ```bash
+   claimtrace --format json trace observations.json > provenance.json
+   ```
+
 ## Contents
 
 - [Why claimtrace?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
