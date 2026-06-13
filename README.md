@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/claimtrace.git"
 claimtrace scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+ClaimTrace helps you figure out where a piece of misinformation or a rumor first appeared and how it spread. You give it a list of sightings — who posted it, when, and where they may have seen it first — and it builds a map showing the most likely origin and the chain of sharing from there. It is useful for journalists, researchers, and fact-checkers who need to quickly establish the timeline and likely source of a false or misleading claim circulating online. The tool runs entirely on your own machine with no account or internet connection needed.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why claimtrace?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -45,6 +51,42 @@ Misinformation provenance tracer — earliest-known appearance graph — without
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`claimtrace` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/claimtrace/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/claimtrace/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/claimtrace.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/claimtrace.git"  # uv
+pip install "git+https://github.com/cognis-digital/claimtrace.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/claimtrace.git
+cd claimtrace && pip install .
+```
+
+Then run:
+```sh
+claimtrace --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
