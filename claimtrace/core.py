@@ -122,6 +122,8 @@ def parse_observations(raw: object) -> List[Observation]:
     Each record requires ``source`` and ``timestamp``; ``variant`` and ``via``
     are optional. Raises ValueError on malformed input.
     """
+    if raw is None:
+        raise ValueError("no input provided (got null/None)")
     if isinstance(raw, dict):
         records = raw.get("observations")
         if records is None:
@@ -191,7 +193,8 @@ def build_graph(observations: List[Observation]) -> ProvenanceGraph:
             g.first_variant[o.source] = o.variant
 
     # 1) Explicit `via` edges (confident).
-    explicit: Dict[str, Tuple[str, float]] = {}
+    # Maps downstream source -> (upstream source, upstream first_seen datetime).
+    explicit: Dict[str, Tuple[str, datetime]] = {}
     for o in observations:
         if not o.via or o.via == o.source:
             continue
@@ -201,10 +204,12 @@ def build_graph(observations: List[Observation]) -> ProvenanceGraph:
             g.first_seen[up] = o.timestamp
             g.first_variant.setdefault(up, "")
         lag = (g.first_seen[o.source] - g.first_seen[up]).total_seconds()
-        # Keep the earliest explicit attribution per downstream source.
+        # Keep only the earliest explicit attribution per downstream source.
         prev = explicit.get(o.source)
         if prev is None or g.first_seen[up] < prev[1]:
-            explicit[o.source] = (up, g.first_seen[up].timestamp())
+            explicit[o.source] = (up, g.first_seen[up])
+            # Replace any previously appended edge for this downstream source.
+            g.edges = [e for e in g.edges if not (e.dst == o.source and not e.inferred)]
             g.edges.append(
                 Edge(src=up, dst=o.source, inferred=False,
                      lag_seconds=max(lag, 0.0), confidence=1.0)

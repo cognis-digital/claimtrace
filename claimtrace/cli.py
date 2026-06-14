@@ -14,8 +14,13 @@ def _load(path: Optional[str]) -> object:
     if path is None or path == "-":
         data = sys.stdin.read()
     else:
-        with open(path, "r", encoding="utf-8") as fh:
-            data = fh.read()
+        try:
+            with open(path, "r", encoding="utf-8") as fh:
+                data = fh.read()
+        except UnicodeDecodeError as exc:
+            raise ValueError(f"file is not valid UTF-8: {exc}") from None
+    if not data.strip():
+        raise ValueError("input is empty")
     try:
         return json.loads(data)
     except json.JSONDecodeError as exc:
@@ -97,6 +102,15 @@ def main(argv: Optional[List[str]] = None) -> int:
             result = trace(observations)
         except FileNotFoundError:
             print(f"error: file not found: {args.input}", file=sys.stderr)
+            return 1
+        except PermissionError:
+            print(f"error: permission denied: {args.input}", file=sys.stderr)
+            return 1
+        except IsADirectoryError:
+            print(f"error: path is a directory, not a file: {args.input}", file=sys.stderr)
+            return 1
+        except OSError as exc:
+            print(f"error: cannot read {args.input}: {exc.strerror}", file=sys.stderr)
             return 1
         except ValueError as exc:
             print(f"error: {exc}", file=sys.stderr)
